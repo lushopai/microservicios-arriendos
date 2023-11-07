@@ -2,14 +2,18 @@ server:
   port: 8081
 
 spring:
+  application:
+    name: registry-service
   cloud:
     config:
       server:
         git:
           uri: https://github.com/lushopai/microservicios-arriendos.git
-          search-paths: config-data
-          username: ${GIT_USER}
-          password: ${GIT_PASSWORD}
+          searchPaths: config-data
+          username: luxo.lyr@gmail.com
+          password: Yanezlu1
+          default-label: "main"
+
 
   security:
     user:
