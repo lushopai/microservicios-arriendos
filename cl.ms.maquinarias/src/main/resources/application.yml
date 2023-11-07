@@ -17,7 +17,14 @@ constants:
 
 spring:
   application:
-    name: arriendos-service
+    name: arriendo-service
+  
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: root
+      password: secret
+       
   mail:
     host: smtp.mailtrap.io
     port: 587
@@ -52,9 +59,6 @@ spring:
     username: root
     password: 12345
     driver-class-name: com.mysql.cj.jdbc.Driver
-  cloud:
-    config:
-      enabled: false  
 server:
   port: 8080      
       
