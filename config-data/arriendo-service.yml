@@ -1,0 +1,72 @@
+swagger:
+  docs:
+    title: Api for Arriendos Services
+    description: Arriendos Services
+    version: 1.0.0
+    terms: Prod
+
+constants:
+  security:
+    jwtSecret: 12345
+    jwtExpirationMs: 3600
+    frontEndOrigin: "http://localhost:4200"
+    
+  jwt:
+    secretKey: 123456789
+    expirationTimeInMillis: 600_000  
+
+spring:
+  application:
+    name: arriendo-service
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: root
+      password: secret
+  mail:
+    host: smtp.mailtrap.io
+    port: 587
+    protocol: smtp
+    username: e3207ab48a08e9
+    password: 3df8001968bf9d
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+
+
+
+
+
+
+#Perfil local
+  config:
+    activate:
+      on-profile:
+      - local
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  datasource:
+    hikari:
+      maximum-pool-size: 10
+    url: jdbc:mysql://localhost:3306/demo?serverTimezone=America/Santiago
+    username: root
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8080      
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/ # URL del servidor Eureka
+  instance:
+    instance-id: 
+    preferIpAddress: true # Preferir dirección IP en lugar de nombre de host    
