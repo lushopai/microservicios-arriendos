@@ -35,6 +35,9 @@ spring:
 
 
 
+
+
+
 #Perfil local
   config:
     activate:
@@ -54,7 +57,9 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     config:
-      enabled: false  
+      uri: http://localhost:8081
+      username: root
+      password: secret
 server:
   port: 8080      
       
