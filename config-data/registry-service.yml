@@ -1,11 +1,11 @@
 server:
-  port: 8099 # Puerto en el que se ejecutará el servidor Eureka
+  port: 8099
 
 eureka:
-  client:
-    registerWithEureka: false # No se registrará a sí mismo como cliente
-    fetchRegistry: false # No se consultará a sí mismo para obtener información del registro
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   instance:
     hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
