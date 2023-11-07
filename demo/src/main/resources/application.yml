@@ -10,8 +10,8 @@ spring:
         git:
           uri: https://github.com/lushopai/microservicios-arriendos.git
           searchPaths: config-data
-          username: luxo.lyr@gmail.com
-          password: Yanezlu1
+          username: ${GIT_USER}
+          password: ${GIT_PASSWORD}
           default-label: "main"
 
 
