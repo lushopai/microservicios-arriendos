@@ -1,0 +1,39 @@
+constants:
+  security:
+    jwtSecret: 12345
+    jwtExpirationMs: 3600
+    frontEndOrigin: "http://localhost:4200"
+    
+  jwt:
+    secretKey: 123456789
+    expirationTimeInMillis: 600_000  
+
+spring:
+  application:
+    name: items-service
+
+#Perfil local
+  config:
+    activate:
+      on-profile:
+      - local
+
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe  
+    username: pipeDB  
+    password: 2497  
+    driver-class-name: oracle.jdbc.OracleDriver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update  
+    show-sql: false 
+
+server:
+  port: 8082      
+      
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8099/eureka/
+ 
