@@ -22,7 +22,6 @@ public class Usuarios implements Serializable {
     private String nombre;
     private String apellido;
 
-
     //private List<Role> roles;
 
     //private List<Otp> otps;
