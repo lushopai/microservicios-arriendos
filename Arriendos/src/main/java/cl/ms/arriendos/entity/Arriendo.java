@@ -1,35 +1,22 @@
-package cl.ms.maquinarias.models;
+package cl.ms.arriendos.entity;
 
+import cl.ms.arriendos.models.Cliente;
+import cl.ms.arriendos.models.Usuarios;
+import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.Table;
-
-import lombok.Builder;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import lombok.Data;
-
 @EntityListeners(AuditingEntityListener.class)
 @Entity
 @Table(name = "tbl_arriendos")
 @Data
-@Builder
 public class Arriendo implements Serializable {
 	
 	/**
@@ -50,18 +37,16 @@ public class Arriendo implements Serializable {
 	@LastModifiedDate
 	private Date dateUpdate;
 	private Double total;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "cliente_id",referencedColumnName = "id")
+
+	@Transient
 	private Cliente cliente;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@Transient
 	private Usuarios usuario;
 	
 	@OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 	@JoinColumn(name = "arriendo_id")
 	private List<DetalleArriendo> items;
-	
+
 	@PrePersist
 	public void init() {
 		fechaArriendo = LocalDateTime.now();
