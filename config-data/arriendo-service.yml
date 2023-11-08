@@ -18,11 +18,7 @@ constants:
 spring:
   application:
     name: arriendo-service
-  cloud:
-    config:
-      uri: http://localhost:8081
-      username: root
-      password: secret
+  
   mail:
     host: smtp.mailtrap.io
     port: 587
@@ -53,6 +49,11 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+  cloud:
+    config:
+      uri: http://localhost:8081
+      username: root
+      password: secret  
   datasource:
     hikari:
       maximum-pool-size: 10
