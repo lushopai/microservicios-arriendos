@@ -49,11 +49,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
-  cloud:
-    config:
-      uri: http://localhost:8081
-      username: root
-      password: secret  
+    
   datasource:
     hikari:
       maximum-pool-size: 10
